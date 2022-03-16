@@ -25,3 +25,19 @@ def test_some_primes():
         for num in range(1, 50)
         if num != 1 and not any([num % div == 0 for div in range(2, num)])
     }
+
+# https://docs.pytest.org/en/6.2.x/getting-started.html#run-multiple-tests
+# content of test_class.py
+class TestClass:
+    def test_one(self):
+        x = "this"
+        assert "h" in x
+    # this one passes because str has "lower" function
+    def test_two(self):
+        x = "hello"
+        assert hasattr(x, "lower")
+
+    # this one fails because str doesn't have "check" function
+    def test_two(self):
+        x = "hello"
+        assert hasattr(x, "check")
